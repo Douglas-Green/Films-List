@@ -1,0 +1,131 @@
+/**
+ * Styles for the whole page to ensure the scrollbar aesthetics are consistent
+ *
+ * @format
+ */
+
+body {
+  --scrollbarBG: #2c2c2c; /* Background of the scrollbar track */
+  --thumbBG: #6b6b6b; /* Color of the scrollbar thumb */
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+/* Styles for webkit browsers */
+/* Container element, .list in your case, which has the scroll */
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Start with three columns */
+  grid-gap: 1.3em;
+  width: 100%;
+  align-content: start;
+  overflow: auto; /* Allow scrolling if content overflows */
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.list::-webkit-scrollbar {
+  width: 12px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+  border-radius: 10px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 10px;
+  border: 3px solid var(--scrollbarBG);
+}
+
+.listItem {
+  padding: 20px;
+  border: 1px solid #333;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e1e1e;
+  color: white;
+  text-shadow: 0.1rem 0.1rem 0.2rem red;
+}
+
+.listItem:hover {
+  background-color: #333;
+  transform: scale(0.95);
+  color: cyan;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #121212;
+  color: #fff;
+  overflow: hidden;
+}
+
+.filmDetails {
+  text-align: center;
+  padding: 1em;
+  border-radius: 8px;
+  background-color: #121212;
+  font-size: 1.4rem;
+  width: 100%;
+  max-width: 960px;
+}
+
+.filmDetails h2,
+.filmDetails p,
+button {
+  margin: 1em 0;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+  }
+
+  .filmDetails,
+  .container,
+  .header {
+    padding: 10px;
+    font-size: 1.2rem; /* Smaller font size for smaller devices */
+  }
+}
+
+@media (max-width: 480px) {
+  .list {
+    grid-template-columns: 1fr; /* One column for mobile devices */
+  }
+
+  .header,
+  .filmDetails {
+    font-size: 1rem; /* Further reduce font size for mobile */
+  }
+}

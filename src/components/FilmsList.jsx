@@ -26,7 +26,7 @@ class FilmsList extends Component {
       .then(data => this.setState({ list: data }))
       .catch(error => console.error("Error: failed to fetch films", error));
   };
-
+  // ! add a method to render the film details when a film is selected
   renderFilmDetails = () => {
     const { selectedFilm } = this.state;
     return (

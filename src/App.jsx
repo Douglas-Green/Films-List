@@ -2,7 +2,8 @@
 
 import React, { Component } from "react";
 import FilmsList from "./components/FilmsList";
-import Modal from "./components/modal";
+import Modal from "./components/Modal";
+import "./index.css";
 
 class App extends Component {
   constructor(props) {
